@@ -43,11 +43,7 @@ public class P42ConsoleLogger() : P42Logger
             LogType.Info => infoColor,
             _ => defaultColor,
         };
-        
-
-
         WriteColoredLine(message, clr);
-
     }
 
     
