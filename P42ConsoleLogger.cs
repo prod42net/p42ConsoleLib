@@ -1,6 +1,5 @@
 ﻿
 using p42BaseLib;
-using p42BaseLib.Interfaces;
 
 
 namespace p42ConsoleLib;
@@ -8,10 +7,10 @@ namespace p42ConsoleLib;
 
 public class P42ConsoleLogger() : P42Logger
 {
-    ConsoleColor infoColor = ConsoleColor.Green;
-    ConsoleColor errorColor = ConsoleColor.Red;
-    ConsoleColor debugColor = ConsoleColor.DarkGray;
-    ConsoleColor defaultColor = ConsoleColor.White;
+    ConsoleColor _infoColor = ConsoleColor.Green;
+    ConsoleColor _errorColor = ConsoleColor.Red;
+    ConsoleColor _debugColor = ConsoleColor.DarkGray;
+    ConsoleColor _defaultColor = ConsoleColor.White;
 
  
 
@@ -30,18 +29,15 @@ public class P42ConsoleLogger() : P42Logger
     }
     
 
-    protected override void WriteEntry(p42BaseLib.LogType logType, string message)
+    protected override void WriteEntry(LogType logType, string message)
     {
-        ConsoleColor clr = defaultColor;
-        string _path = "";
-
-        clr = logType switch
+        ConsoleColor clr = logType switch
         {
-            LogType.Log => defaultColor,
-            LogType.Error => errorColor,
-            LogType.Debug => debugColor,
-            LogType.Info => infoColor,
-            _ => defaultColor,
+            LogType.Log => _defaultColor,
+            LogType.Error => _errorColor,
+            LogType.Debug => _debugColor,
+            LogType.Info => _infoColor,
+            _ => _defaultColor
         };
         WriteColoredLine(message, clr);
     }

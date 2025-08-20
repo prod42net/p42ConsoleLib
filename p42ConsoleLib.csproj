@@ -7,10 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Interfaces\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\p42BaseLib\p42BaseLib\p42BaseLib.csproj" />
     </ItemGroup>
 
