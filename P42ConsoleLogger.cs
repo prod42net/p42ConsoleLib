@@ -31,14 +31,28 @@ public class P42ConsoleLogger() : P42Logger
 
     protected override void WriteEntry(LogType logType, string message)
     {
-        ConsoleColor clr = logType switch
+        ConsoleColor clr;
+        switch (logType)    
         {
-            LogType.Log => _defaultColor,
-            LogType.Error => _errorColor,
-            LogType.Debug => _debugColor,
-            LogType.Info => _infoColor,
-            _ => _defaultColor
-        };
+            case LogType.Log:
+                // getting logstring with timer
+                message = $"{GetTimeStampLabel(GetTimeStamp())} {message}";
+                clr = _defaultColor;
+                break;
+            case LogType.Error:
+                clr = _errorColor;
+                break;
+            case LogType.Info:
+                clr = _infoColor;
+                break;
+            case LogType.Debug:
+                clr = _debugColor;
+                break;
+            default:
+                clr = _defaultColor;
+                break;
+        }
+ 
         WriteColoredLine(message, clr);
     }
 

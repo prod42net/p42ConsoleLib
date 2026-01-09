@@ -7,6 +7,10 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="p42BaseLib" Version="1.0.4" />
+    </ItemGroup>
+
+    <ItemGroup>
       <ProjectReference Include="..\p42BaseLib\p42BaseLib\p42BaseLib.csproj" />
     </ItemGroup>
 
