@@ -15,7 +15,7 @@ public class CmdLine
 
     public string this[string key] => _dict[key];
     public bool ContainsKey(string key) => _dict.ContainsKey(key);
-    public bool TryGetValue(string key, out string value) => _dict.TryGetValue(key, out value);
+    public bool TryGetValue(string key, out string value) => _dict.TryGetValue(key, out value!);
     public IEnumerable<string> Keys => _dict.Keys;
     public IEnumerable<string> Values => _dict.Values;
     public int Count => _dict.Count;
@@ -43,7 +43,7 @@ public class CmdLine
 
     public void Clear()
     {
-        _args = null;
+        _args = Array.Empty<string>();
         _dict.Clear();
     }
 
