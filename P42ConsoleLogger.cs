@@ -5,14 +5,24 @@ using p42BaseLib;
 namespace p42ConsoleLib;
 
 
-public class P42ConsoleLogger() : P42Logger
+public class P42ConsoleLogger : P42Logger
 {
     ConsoleColor _infoColor = ConsoleColor.Green;
     ConsoleColor _errorColor = ConsoleColor.Red;
     ConsoleColor _debugColor = ConsoleColor.DarkGray;
     ConsoleColor _defaultColor = ConsoleColor.White;
 
- 
+    public P42ConsoleLogger()
+    
+    {
+        
+    }
+    public P42ConsoleLogger(bool production, bool logToFile, bool logToConsole)
+    : base(production, logToFile, logToConsole)
+    {
+        
+    }
+
 
     static void WriteColoredLine(string text, ConsoleColor foreground, ConsoleColor? background = null)
     {
