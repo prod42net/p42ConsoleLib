@@ -39,14 +39,14 @@ public class P42ConsoleLogger : P42Logger
     }
     
 
-    protected override void WriteEntry(LogType logType, string message)
+    protected override void WriteEntry(LogType logType, string message,DateTime timestamp)
     {
         ConsoleColor clr;
         switch (logType)    
         {
             case LogType.Log:
                 // getting logstring with timer
-                message = $"{GetTimeStampLabel(GetTimeStamp())} {message}";
+                message = $"{GetTimeStampLabel(timestamp)} {message}";
                 clr = _defaultColor;
                 break;
             case LogType.Error:
